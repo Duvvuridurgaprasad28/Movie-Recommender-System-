@@ -1,7 +1,4 @@
-
-```markdown
-# Movie Recommender System with Live Posters
-
+# Movie Recommender System 
 This project is a content-based movie recommender system that suggests movies similar to a selected movie using metadata features and cosine similarity. The recommendations are enhanced with live movie posters fetched dynamically from the TMDB API, all presented via a Streamlit web app.
 
 ---
@@ -94,7 +91,7 @@ python src/components/model_trainer.py
 6. **Launch Streamlit app**
 
 ```bash
-streamlit run src/app.py
+streamlit run app.py
 ```
 
 ---
