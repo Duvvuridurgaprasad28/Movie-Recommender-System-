@@ -1,0 +1,22 @@
+# requirements.txt placeholder
+# Core libraries
+pandas
+numpy
+scikit-learn
+PyYAML
+
+# NLP
+nltk
+
+# Web app
+streamlit
+
+# DVC (for data & model versioning)
+dvc
+
+# Logging (standard library, but adding rich for better logs optional)
+rich  # optional: improves log formatting
+
+# Ensure compatibility with Python 3.8+
+
+-e .

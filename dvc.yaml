@@ -1,0 +1,48 @@
+stages:
+  ingest:
+    cmd: python data_ingestion.py
+    deps:
+      - data/data_raw/train.csv
+      - data/data_raw/test.csv
+      - data_ingestion.py
+      - config/config.yaml
+    outs:
+      - data/data_ingestion/train_cleaned.csv
+      - data/data_ingestion/test_cleaned.csv
+
+  data_preprocessing:         # <-- NEW stage here
+    cmd: python data_preprocessing.py
+    deps:
+      - data/data_ingestion/train_cleaned.csv
+      - data/data_ingestion/test_cleaned.csv
+      - data_preprocessing.py
+      - config/config.yaml
+    outs:
+      - data/data_preprocessing/train_processed.csv
+      - data/data_preprocessing/test_processed.csv
+
+  feature_engineering:
+    cmd: python feature_engineering.py
+    deps:
+      - data/data_preprocessing/train_processed.csv      # updated to use preprocessing output
+      - data/data_preprocessing/test_processed.csv       # updated here too
+      - feature_engineering.py
+      - config/config.yaml
+    outs:
+      - data/feature_engineering/train_featured.csv
+      - data/feature_engineering/test_featured.csv
+      - data/feature_engineering/train_targets.csv
+
+  train:
+    cmd: python train.py
+    deps:
+      - data/feature_engineering/train_featured.csv
+      - data/feature_engineering/test_featured.csv
+      - data/feature_engineering/train_targets.csv
+      - train.py
+      - evaluation.py
+      - model_registry.py
+      - config/config.yaml
+    outs:
+      - data/split/model_results.csv
+      - model_registry/

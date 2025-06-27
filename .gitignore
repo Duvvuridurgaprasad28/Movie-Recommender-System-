@@ -1,0 +1,37 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+dist/
+build/
+
+# --- Virtual Environment ---
+movie/
+
+# --- Logs ---
+*.log
+
+# --- DVC ---
+.dvc/
+.dvc/tmp/
+.dvc/cache/
+.dvc/config.local
+*.dvc
+
+# --- Streamlit ---
+.streamlit/
+
+# --- System Files ---
+.DS_Store
+Thumbs.db
+
+# --- Editors ---
+.vscode/
+.idea/
+
+# --- Secrets ---
+.env
+apikey.txt
+tmdb_api_key.txt
+README.md

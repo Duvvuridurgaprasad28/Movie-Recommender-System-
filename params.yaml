@@ -1,0 +1,5 @@
+# params.yaml placeholder
+model_trainer:
+  max_features: 5000          # Maximum number of words for CountVectorizer
+  stop_words: "english"       # Stop words to remove during vectorization
+  top_n_recommendations: 5    # Number of movie recommendations to return
