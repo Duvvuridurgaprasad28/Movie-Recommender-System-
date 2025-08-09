@@ -274,9 +274,4 @@ This project is licensed under the MIT License.
 
 ---
 
-Let me know if you want me to help add actual images or CI badges! This is ready to drop right into your repo. 🚀
-
-```
----
-
                                              Enjoy discovering your next favorite movie! 🍿🎥
