@@ -2,9 +2,14 @@ import streamlit as st
 import pickle
 import pandas as pd
 import requests
+import os
+from dotenv import load_dotenv
 
-# Constants
-TMDB_API_KEY = "8265bd1679663a7ea12ac168da84d2e8"
+# Load environment variables (optional for local dev)
+load_dotenv()
+
+# Securely fetch the API key
+TMDB_API_KEY = os.getenv("TMDB_API_KEY")  # Never hardcode secrets in code
 BASE_IMAGE_URL = "https://image.tmdb.org/t/p/w500"
 
 # Load saved artifacts
@@ -36,7 +41,7 @@ def recommend(movie, top_n=5):
     for i in movie_list:
         row = movies.iloc[i[0]]
         title = row['title']
-        movie_id = row.get('movie_id', None)  # get TMDB movie id if exists
+        movie_id = row.get('movie_id', None)
         poster_path = ''
         if movie_id:
             poster_path = fetch_poster_path(movie_id)
@@ -45,13 +50,26 @@ def recommend(movie, top_n=5):
     return recommended
 
 # Streamlit UI
-st.title('🎬 Movie Recommender System with Live Posters')
+st.set_page_config(page_title="MovieMatch+", layout="wide")
 
+# Centered header
+st.markdown("""
+    <div style='text-align: center;'>
+        <h1>🎬 MovieMatch+</h1>
+        <h3>Smart Recommendations with Live Posters</h3>
+        <p><em>Your next favorite movie is just a click away.</em></p>
+    </div>
+""", unsafe_allow_html=True)
+
+st.markdown("---")
+
+# Movie selection
 selected_movie = st.selectbox(
     'Choose a movie to get recommendations:',
     movies['title'].values
 )
 
+# Recommend button
 if st.button('Recommend'):
     recommendations = recommend(selected_movie)
     if recommendations:
