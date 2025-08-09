@@ -260,6 +260,7 @@ By embedding MLOps from day one, this project takes a familiar ML concept and tu
 
 *For full details and blog post, visit:*
 [https://medium.com/@durgaprasad\_47163/building-a-production-ready-movie-recommender-system-with-mlops-3b99329a961b](https://medium.com/@durgaprasad_47163/building-a-production-ready-movie-recommender-system-with-mlops-3b99329a961b)
+
 *Try the live app:*
 [https://huggingface.co/spaces/prasadduvvuri/moviematch-plus](https://huggingface.co/spaces/prasadduvvuri/moviematch-plus)
 
